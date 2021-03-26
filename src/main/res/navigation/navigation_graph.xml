@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.project.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginnavigation" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/loginnavigation" />
+        <action
+            android:id="@+id/action_mainFragment_to_permissionsFragment"
+            app:destination="@id/permissionnavigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.project.scan.ScanFragment"
+        android:label="scan_fragment"
+        tools:layout="@layout/scan_fragment">
+        <action
+            android:id="@+id/action_scanFragment_to_abmFragment"
+            app:destination="@id/abmFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_injectFragment"
+            app:destination="@id/injectFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_emitFragment"
+            app:destination="@id/emitFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_receiveFragment"
+            app:destination="@id/receiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/abmFragment"
+        android:name="com.example.project.core.AbmFragment"
+        android:label="abmfragment"
+        tools:layout="@layout/abmfragment">
+        <argument
+            android:name="affectationFromAssistant"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_abmFragment_to_assistantLocalFragment"
+            app:destination="@id/assistantLocalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/injectFragment"
+        android:name="com.example.project.core.InjectFragment"
+        android:label="injectfragment"
+        tools:layout="@layout/injectfragment" />
+    <fragment
+        android:id="@+id/emitFragment"
+        android:name="com.example.project.core.EmitFragment"
+        android:label="emitfragment"
+        tools:layout="@layout/emitfragment" />
+    <fragment
+        android:id="@+id/receiveFragment"
+        android:name="com.example.project.core.ReceiveFragment"
+        android:label="receivefragment"
+        tools:layout="@layout/receivefragment" />
+    <navigation
+        android:id="@+id/loginnavigation"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.example.project.ui.login.LoginFragment"
+            android:label="login_fragment"
+            tools:layout="@layout/login_fragment">
+            <action
+                android:id="@+id/action_loginFragment_to_mainFragment"
+                app:destination="@id/mainFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_profileFragment"
+                app:destination="@id/profileFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.example.project.ui.login.ProfileFragment"
+            android:label="profile_fragment"
+            tools:layout="@layout/profile_fragment">
+            <action
+                android:id="@+id/action_profileFragment_to_mainFragment"
+                app:destination="@id/mainFragment" />
+        </fragment>
+    </navigation>
+    <navigation
+        android:id="@+id/permissionnavigation"
+        app:startDestination="@id/permissionsFragment">
+        <fragment
+            android:id="@+id/permissionsFragment"
+            android:name="com.example.project.PermissionsFragment"
+            android:label="PermissionsFragment">
+            <action
+                android:id="@+id/action_permissionsFragment_to_scanFragment"
+                app:destination="@id/scanFragment"
+                app:popUpTo="@id/permissionsFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
+    <fragment
+        android:id="@+id/assistantLocalFragment"
+        android:name="com.example.project.assistant.zone.AssistantLocalFragment"
+        android:label="AssistantLocalFragment" >
+        <action
+            android:id="@+id/action_assistantLocalFragment_self"
+            app:destination="@id/assistantLocalFragment" />
+        <action
+            android:id="@+id/action_assistantLocalFragment_to_abmFragment"
+            app:destination="@id/abmFragment" />
+    </fragment>
+</navigation>

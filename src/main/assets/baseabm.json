@@ -1,0 +1,4 @@
+[
+  {"equipement":{"Type":"PC","localisation":"STOCK","user":"02755"},"inv":"012347"},
+  {"equipement":{"Type":"IMP","affected":true,"localisation":"En ROUTE","user":"02755"},"inv":"012348"}
+]
